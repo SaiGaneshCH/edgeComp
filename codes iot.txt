@@ -1,0 +1,47 @@
+#define smokeSensor A0
+#define ledPin 13
+
+void setup() {
+  pinMode(smokeSensor, INPUT);
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int sensorValue = analogRead(smokeSensor);
+  Serial.println(sensorValue);
+  if (sensorValue > 500) { // smoke detected
+    digitalWrite(ledPin, HIGH);
+    Serial.println("Smoke Detected!");
+  } else {
+    digitalWrite(ledPin, LOW);
+  }
+  delay(1000); // wait for a second
+}
+
+
+11
+
+
+
+
+#define irSensor 2
+#define ledPin 13
+
+void setup() {
+  pinMode(irSensor, INPUT);
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int sensorValue = digitalRead(irSensor);
+  Serial.println(sensorValue);
+  if (sensorValue == HIGH) { // IR detected
+    digitalWrite(ledPin, HIGH);
+    Serial.println("IR Detected!");
+  } else {
+    digitalWrite(ledPin, LOW);
+  }
+  delay(1000); // wait for a second
+}
